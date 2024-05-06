@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+void shiftLeft(int source[], int size, int k) {
+    // Shift elements to the left by k positions
+    for (int i = 0; i < size - k; ++i) {
+        source[i] = source[i + k];
+    }
+    // Fill the remaining positions with 0
+    for (int i = size - k; i < size; ++i) {
+        source[i] = 0;
+    }
+}
+
+int main() {
+    int source[] = {10, 20, 30, 40, 50, 60};
+    int size = sizeof(source) / sizeof(source[0]);
+    int k = 3;
+    shiftLeft(source, size, k);
+//here it calls the function by using source,size,k;
+    // Print the modified array
+    for (int i = 0; i < size; ++i) {
+        std::cout << source[i] << " ";
+    }
+    std::cout << std::endl;
+    return 0;
+}
