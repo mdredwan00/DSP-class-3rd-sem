@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+void shiftRight(int source[], int size, int k) {
+    // Shift elements to the right by k positions
+    for (int i = size - 1; i >= k; i--) {
+        source[i] = source[i - k];
+    }
+    // Fill the remaining positions with 0
+    for (int i = 0; i < k; ++i) {
+        source[i] = 0;
+    }
+}
+
+int main() {
+    int source[] = {10, 20, 30, 40, 50, 60};
+    int size = sizeof(source) / sizeof(source[0]);
+    int k = 3;
+    shiftRight(source, size, k);
+    // Print the modified array
+    for (int i = 0; i < size; i++) {
+    cout << source[i] <<" ";
+    }
+    cout << endl;
+    return 0;
+}
