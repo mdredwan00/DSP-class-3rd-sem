@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+
+int binarySearch(int arr[], int size , int val){
+    int left = 0;
+    int right = size - 1;//array size is 9 so the ratio is 9-1=8
+    while(left <= right){//0<8
+        int mid = (right + left)/ 2;//first etaration 8+0/2=4;
+        if(arr[mid] == val){
+            std::cout << "The value is in index " << mid << std::endl;
+            return mid;
+        }else if(arr[mid] < val){//4<6 so left=4+1=5
+            left = mid + 1;
+        }else{
+            right = mid - 1;
+        }
+    }
+    std::cout << "The value is not in the array. " << std::endl;
+    return -1;
+}
+
+int main(){
+    int array[] = {1,2,3,4,5,6,7,8,9};
+    int arraySize = sizeof(array)/sizeof(array[0]);
+    int value = 7;
+    binarySearch(array, arraySize, value);
+    return 0;
+}
