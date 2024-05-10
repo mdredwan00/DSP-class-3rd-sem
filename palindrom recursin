@@ -1,0 +1,33 @@
+#include <iostream>
+
+bool isPalindrome(int num, int originalNum, int reversedNum) {
+    if (num == 0) {
+        return originalNum == reversedNum;
+    }
+    int lastDigit = num % 10;
+    reversedNum = (reversedNum * 10) + lastDigit;
+    return isPalindrome(num / 10, originalNum, reversedNum);
+}
+
+int main() {
+    int number;
+    std::cout << "Enter a number: ";
+    std::cin >> number;
+
+    // Store the original number
+    int originalNumber = number;
+
+    // Initialize reversed number to 0
+    int reversedNumber = 0;
+
+    // Check if the number is a palindrome
+    bool result = isPalindrome(number, originalNumber, reversedNumber);
+
+    if (result) {
+        std::cout << originalNumber << " is a palindrome.\n";
+    } else {
+        std::cout << originalNumber << " is not a palindrome.\n";
+    }
+
+    return 0;
+}
