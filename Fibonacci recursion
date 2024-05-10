@@ -1,0 +1,26 @@
+#include <iostream>
+
+int fibonacci(int n) {
+    if (n == 0) {
+        return 0;
+    }
+    if (n == 1) {
+        return 1;
+    }
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main() {
+    int num;
+    std::cout << "Enter a non-negative integer to calculate Fibonacci: ";
+    std::cin >> num;
+
+    if (num < 0) {
+        std::cout << "Fibonacci is not defined for negative numbers.\n";
+    } else {
+        int result = fibonacci(num);
+        std::cout << "Fibonacci number at position " << num << " is: " << result << std::endl;
+    }
+
+    return 0;
+}
